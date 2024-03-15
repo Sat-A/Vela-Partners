@@ -86,8 +86,8 @@ def wide_search(search_query):
                                f"you think are most relevant. Do not include crunchbase.com as one of those"
                                f"sites. Return only the string in the format mentioned. Be creative on potential websites.",
                                model="gpt-4-turbo-preview", tokens=50)
-    search_query += " " + enrich
-    print(search_query)
+    search_query += " " + enrich + " site:angel.co OR site:techcrunch.com "
+    # print(search_query)
     url = f"https://api.bing.microsoft.com/v7.0/search?q={search_query}&count=6"
     headers = {"Ocp-Apim-Subscription-Key": bing_api_key}
     response = requests.get(url, headers=headers)
