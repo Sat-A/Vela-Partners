@@ -150,7 +150,7 @@ def get_company_info(url):
 
     return None
 \end{lstlisting}
-\begin{lstlisting}[language=Python, caption=Generating Summary o fdata]
+\begin{lstlisting}[language=Python, caption=Generating Summary of data]
 print("Summary of results: ")
 summary = get_chat_response(responses, "Given is a python dictionary containing information about various startup companies. You are an experienced venture capitalist who has invested in many successful startups and know very well what distinguishes a successful, unicorn startup from its mediocre counterpart at an early stage. Examine the company details one by one and evaluate how successful you think the company can be. As a venture capitalist, you prioritise smaller companies with innovative ideas with well-educated founders that are visionaries in their field. Assign a numerical ranking to the companies according to your evaluation and return this ranked list with an up to 10 word description of why you think the company deserves this rank. Format: 
 1.) <Company 1> - <reason why it is better than others> 
