@@ -6,15 +6,23 @@ import os
 
 load_dotenv()
 
+# Configure API keys below
+'''
+To run this project, you will need a .env file in the following format:
+OPENAI_API_KEY = 'your_key_here'
+BING_API_KEY = 'your_key_here'
+CRUNCHBASE_API_KEY = 'your_key_here'
+'''
+
+
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-# Set up your Bing Search API key
 bing_api_key = os.getenv("BING_API_KEY")
-
 crunchbase_api_key = os.getenv("CRUNCHBASE_API_KEY")
 
+# Initialising responses variable to have llm generate a summary of results
 responses = {}
 
+# Uses Bing api to search through crunchbase using site names or descriptions
 def crunchbase_search(query, count=10):
     query += " site:www.crunchbase.com/organization"
     url = "https://api.bing.microsoft.com/v7.0/search"
@@ -39,6 +47,7 @@ def crunchbase_search(query, count=10):
         return []
 
 
+# Uses web scraping to extract company names from news articles and other relevant sources.
 def extract_company_names(results):
     companies = []
     for result in results:
@@ -52,7 +61,7 @@ def extract_company_names(results):
     return companies
 
 
-# Function to get the response from ChatGPT
+# Function to get the response from openai api with configurable models and tokens
 def get_chat_response(prompt, pre_prompt="", model="gpt-3.5-turbo", tokens=500):
     response = client.chat.completions.create(
         model=model,
@@ -66,14 +75,17 @@ def get_chat_response(prompt, pre_prompt="", model="gpt-3.5-turbo", tokens=500):
     return response.choices[0].message.content
 
 
+# Using LLM to generate an efficient search query to look for websites where we might find companies related to the
+# business sector we are searching for.
 def wide_search(search_query):
     # Enriching the query
-    enrich = get_chat_response(f"What are some websites that report on or present information about {search_query}?"
+    enrich = get_chat_response(f"What are some news, journalism or other relevant websites that report on or present "
+                               f"information about {search_query}?"
                                f"Give me a list of urls of such websites in the format below:"
                                f"site:<url1> OR site:<url2> OR site:<url3> and so on. Produce a list of 5 websites that"
                                f"you think are most relevant. Do not include crunchbase.com as one of those"
-                               f"sites. Return only the string in the format mentioned",
-                               model="gpt-4", tokens=50)
+                               f"sites. Return only the string in the format mentioned. Be creative on potential websites.",
+                               model="gpt-4-turbo-preview", tokens=50)
     search_query += " " + enrich
     print(search_query)
     url = f"https://api.bing.microsoft.com/v7.0/search?q={search_query}&count=6"
@@ -82,6 +94,7 @@ def wide_search(search_query):
     data = response.json()
     return data['webPages']['value']
 
+# Given a list of company names, returns crunchbase urls
 def find_crunchbase_url(company_names, api_key):
     search_results = {}
 
@@ -110,6 +123,7 @@ def find_crunchbase_url(company_names, api_key):
     return search_results
 
 
+# Interacting with crunchbase api to obtain useful information about a company
 def get_company_info(url):
     # Extract organization ID from the URL
     organization_id = url[40:].split('/')[0]
@@ -123,6 +137,7 @@ def get_company_info(url):
         company_name = founder_name = founder_description = linkedin_url = website = description = funding_amt = funding_type = None
         # Check for successful response
         if response.status_code == 200:
+            # Extracting information from crunchbase api response. Fully customisable to extract relevant information
             data = response.json()
             try:
                 company_name = data["properties"]["identifier"]["value"]
@@ -142,7 +157,7 @@ def get_company_info(url):
 
     return None
 
-
+# Formats the output of get_company_info() function into a human-readable form
 def Output_format(crunchbase_url):
     company_name, website, description, linkedin_url, founder_name, founder_description, funding_amt, funding_type = get_company_info(crunchbase_url)
     print(company_name)
@@ -152,6 +167,7 @@ def Output_format(crunchbase_url):
     print(f"Description: {gpt_description}")
     print(f"Linkedin: {linkedin_url}")
     print(f"Funding: {funding_amt} USD, Type: {funding_type}")
+    # Creates a dictionary of responses that is later fed into an llm to generate a summary of our results.
     responses[company_name] = {"Description": description, "Funding amount": funding_amt, "Funding Type": funding_type, "Founder Description": founder_description}
     if founder_name:
         print(f"Founder Name: {founder_name}")
@@ -183,8 +199,12 @@ updated_search_query = get_chat_response(search_query, f"Given is a simple searc
                                                        f"the user input, simply return the search query again. If not,"
                                                        f"make minor modifications and return the new search query. Do"
                                                        f"not make unnecessary changes. Search query:")
-# print(search_query)
-# print(updated_search_query)
+
+# Searching the wider internet to obtain company names
+print("Searching the wider internet")
+print("(Note: Less relevant results)")
+print()
+
 results = wide_search(updated_search_query)
 company_names = extract_company_names(results)
 format_company_names_1 = get_chat_response(company_names, "Following is a block of text containing web-scraped data on"
@@ -198,7 +218,7 @@ format_company_names_1 = get_chat_response(company_names, "Following is a block 
                                                           "Your output should only"
                                                           " contain the list in plain text form, in the format:"
                                                           "['company_name_1', 'company_name_2', 'company_name_3',...]",
-                                           model='gpt-4', tokens=100)
+                                           model='gpt-4-turbo-preview', tokens=100)
 
 format_company_names = get_chat_response(format_company_names_1,
                                          "Given is a list that should contain the names of seed,"
@@ -207,19 +227,20 @@ format_company_names = get_chat_response(format_company_names_1,
                                          "company names. Do not make unnecessary changes, returning the"
                                          "list in the same format as the output. This is the list:")
 
-# Searching the wider internet to obtain company names
-print("Searching the wider internet\n")
-
-print(format_company_names)
 format_company_names = eval(format_company_names)
-wider_list = find_crunchbase_url(format_company_names, bing_api_key)
+if format_company_names:
+    wider_list = find_crunchbase_url(format_company_names, bing_api_key)
 
-for url in wider_list:
-    Output_format(wider_list[url])
+    for url in wider_list:
+        Output_format(wider_list[url])
+else:
+    print("No relevant results found\n")
 
 
 # Using Crunchbase to look for companies
-print("Crunchbase results:\n")
+print("Crunchbase results:")
+print("(Note: Most relevant results)")
+print()
 search_results = crunchbase_search(search_query, count=10)
 
 crunchbase_list = []
@@ -232,6 +253,7 @@ else:
 for url in crunchbase_list:
     Output_format(url)
 
+# Using LLM to generate a summary of our results
 print("Summary of results: ")
 summary = get_chat_response(responses, "Given is a python dictionary containing information about various startup"
                                        "companies.You are an experienced venture capitalist who has invested in many "
@@ -247,5 +269,5 @@ summary = get_chat_response(responses, "Given is a python dictionary containing 
                                        "2.) <Company 2> - <reason>"
                                        "... and so on. Up to 10 companies max but use your discretion to remove"
                                        "companies that you feel do not deserve to be on the list."
-                                       "The dictionary is below: ", model="gpt-4")
+                                       "The dictionary is below: ", model="gpt-4-turbo-preview")
 print(summary)
