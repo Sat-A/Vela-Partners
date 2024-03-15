@@ -1,0 +1,169 @@
+C:\Users\thesa\AppData\Local\Programs\Python\Python39\python.exe "C:\Users\thesa\PycharmProjects\Vela Partners\Chatbot.py"
+Desired business sector: Ai agents
+Crunchbase results:
+(Note: Most relevant results)
+
+AI Startup Incubator
+Website: https://www.suincubator.ai/
+Description: AI Startup Incubator (AISI) is part of Look AI Ventures, specializing in AI startup investments.
+Linkedin: https://www.linkedin.com/company/18162430/
+Funding: 0 USD, Type: None
+Founder not found.
+
+Flat6Labs
+Website: http://www.flat6labs.com
+Description: Seed and early-stage VC firm investing in tech-driven startups.
+Linkedin: http://www.linkedin.com/company/flat6labs
+Funding: 1000000 USD, Type: series_unknown
+Founder Name: Ahmed Alfi
+Description: None
+
+Abstract Ventures
+Website: http://www.abstract.vc
+Description: Abstract Ventures invests in startup companies across various sectors.
+Linkedin: https://www.linkedin.com/company/abstract-ventures
+Funding: None USD, Type: None
+Founder not found.
+
+PointOne Capital
+Website: None
+Description: Provide the description of the company you would like me to condense.
+Linkedin: None
+Funding: None USD, Type: None
+Founder not found.
+
+Rain AI
+Website: http://rain.ai
+Description: Future-oriented company specializing in affordable artificial intelligence solutions.​
+Linkedin: https://www.linkedin.com/company/rain-artificial-intelligence
+Funding: 32130020 USD, Type: series_unknown
+Founder Name: Gordon Wilson
+Description: Gordon Wilson is Co-founder & Executive Advisor at Rain AI. He previously worked at UF Data Science And Informatics as a President.
+
+Conjecture
+Website: https://conjecture.dev/
+Description: AI Safety and Product Development Company.
+Linkedin: https://www.linkedin.com/company/conjecture/
+Funding: 25000000 USD, Type: seed
+Founder Name: Connor Leahy
+Description: Connor Leahy is the CEO of Conjecture.
+
+Alaan
+Website: https://www.alaan.com
+Description: Alaan: Largest spend management platform in the Middle East.
+Linkedin: https://www.linkedin.com/company/alaanpay/
+Funding: 7000000 USD, Type: seed
+Founder Name: Karun Kurien
+Description: Karun Kurien is a Co-Founder at Alaan. He attended the University of Michigan - Stephen M. Ross School of Business.
+
+Ganas Ventures
+Website: https://www.ganas.vc
+Description: Ganas Ventures invests in pre-seed & seed startups in US/Latin America.
+Linkedin: https://www.linkedin.com/company/ganasvc
+Funding: 0 USD, Type: series_unknown
+Founder Name: Lolita Taub
+Description: Lolita Taub is a General Partner and Founder of Ganas Ventures, a Venture Partner at NextGen Venture Partners, and an Enterprise Fund Investment Partner at Portfolia. She holds a BA from the University of Southern California and an MBA from the IE Business School.
+
+Dyad
+Website: https://www.dyad.net/
+Description: Company: Dyad
+Focus: Building trust in data and AI for healthcare.
+Linkedin: https://www.linkedin.com/company/dyad-ai
+Funding: 4000000 USD, Type: seed
+Founder not found.
+
+PepperTree.AI Pvt Ltd
+Website: http://peppertree.ai
+Description: Change leader in Fintech, Logistics & Supply Chain industries.
+Linkedin: https://www.linkedin.com/company/peppertreeai-geovertx/about/?viewAsMember=true
+Funding: 58714 USD, Type: pre_seed
+Founder Name: Krishna Kumar
+Description: Senior Business Consultant with 20 years of experience in IT and Engineering services, End to End Sales, Business Development, P&L, Strategic Planning, and Account Management in the IT/ITES solutions and SaaS industry. Hands-on experience with GIS Technologies and Technology know-how within Building and Process Plant Engineering sector.
+
+Nightfall AI
+Website: https://www.nightfall.ai
+Description: Cloud data protection platform using machine learning for data security.
+Linkedin: https://www.linkedin.com/company/nightfall-ai/
+Funding: 60300000 USD, Type: series_b
+Founder Name: Isaac Madan
+Description: Co-Founder & CEO at Nightfall.
+
+Poolside
+Website: http://www.poolside.ai
+Description: Unable to perform this action.
+Linkedin: None
+Funding: None USD, Type: None
+Founder not found.
+
+Sleepless AI
+Website: https://www.sleeplessai.net
+Description: I can't assist with rewriting or summarizing tasks.
+Linkedin: None
+Funding: None USD, Type: None
+Founder not found.
+
+Mistral AI
+Website: https://mistral.ai
+Description: AI startup offering open & portable generative AI solutions for all.
+Linkedin: https://www.linkedin.com/company/mistralai
+Funding: 544033710 USD, Type: corporate_round
+Founder Name: Arthur Mensch
+Description: Arthur Mensch is a Co-Founder and Chief Executive Officer at Mistral AI.
+
+BeyondSeed
+Website: https://www.beyondseed.sg/
+Description: Company: BeyondSeed - Growth engine aiding startups from Seed to Series A.
+Linkedin: https://www.linkedin.com/company/beyondseed-venture-solutions-pte-limited/
+Funding: 0 USD, Type: pre_seed
+Founder not found.
+
+Arva Intelligence
+Website: https://www.arvaintelligence.com/
+Description: AI company specialized in agriculture sector: Arva Intelligence.
+Linkedin: https://www.linkedin.com/company/arva-intelligence/
+Funding: 75000 USD, Type: pre_seed
+Founder Name: Ben Brown
+Description: Ben Brown is the Assistant Professor at UC Berkeley. He attended University of California, Berkeley.
+
+Series.AI
+Website: https://series.ai
+Description: I can provide answers to questions. Feel free to ask.
+Linkedin: None
+Funding: None USD, Type: None
+Founder not found.
+
+Latent AI
+Website: http://latentai.com/
+Description: Latent AI accelerates AI implementation cost-effectively on the edge.
+Linkedin: https://www.linkedin.com/company/latent-ai-inc/about/?viewAsMember=true
+Funding: 22500000 USD, Type: series_a
+Founder Name: Jags Kandasamy
+Description: Jags Kandasamy is the Co-Founder & Chief Executive Officer at Latent AI.
+
+Open Seed
+Website: https://www.openseed.it/
+Description: Venture capital and private equity firm supporting pre-seed/start-ups.
+Linkedin: https://www.linkedin.com/company/openseed/
+Funding: 283607 USD, Type: equity_crowdfunding
+Founder Name: Francesco Maggio
+Description: Francesco Maggio has a background in Business Administration, focusing on financial and administrative planning, and serves as CFO for KValue, a company supporting Digital Transformation with his main goal being "Bringing innovation and technology to the company."
+
+PreSeed Ventures
+Website: http://www.preseedventures.dk
+Description: Notable early stage investor preSeed Ventures with 400+ journeys.
+Linkedin: https://www.linkedin.com/company/preseed-ventures/
+Funding: None USD, Type: None
+Founder not found.
+
+Summary of results:
+1.) Conjecture - Innovative AI safety product, seed-stage potential
+2.) Rain AI - Strong funding, AI vision with experienced founder
+3.) Alaan - Large platform in Middle East, strong business school founder
+4.) Latent AI - Enterprise AI cost efficiency, solid series A funding
+5.) Nightfall AI - Significant series B funding, crucial data protection tech
+6.) Dyad - Healthcare AI, seed funding with potential for impact
+7.) PepperTree.AI Pvt Ltd - Fintech and logistics AI, experienced founder
+8.) Arva Intelligence - Niche agriculture AI, educational background of founder
+9.) Mistral AI - Huge funding, open AI solutions, CEO with vision
+
+Process finished with exit code 0
