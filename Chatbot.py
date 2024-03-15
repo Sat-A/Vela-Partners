@@ -74,69 +74,6 @@ def get_chat_response(prompt, pre_prompt):
     return response.choices[0].message.content
 
 
-'''def search_company_urls(company_names, api_key):
-    search_results = {}
-
-    for company_name in company_names:
-        # Make a request to the Bing Web Search API for company website
-        response_company_website = requests.get(
-            "https://api.bing.microsoft.com/v7.0/search",
-            params={"q": company_name},
-            headers={"Ocp-Apim-Subscription-Key": api_key}
-        )
-
-        # Make a request to the Bing Web Search API for LinkedIn profile
-        response_linkedin = requests.get(
-            "https://api.bing.microsoft.com/v7.0/search",
-            params={"q": company_name + " site:linkedin.com"},
-            headers={"Ocp-Apim-Subscription-Key": api_key}
-        )
-
-        # Make a request to the Bing Web Search API for Crunchbase URL
-        response_crunchbase = requests.get(
-            "https://api.bing.microsoft.com/v7.0/search",
-            params={"q": company_name + " site:crunchbase.com"},
-            headers={"Ocp-Apim-Subscription-Key": api_key}
-        )
-
-        # Check if the request for company website was successful
-        if response_company_website.status_code == 200:
-            # Extract the top search result URL
-            data = response_company_website.json()
-            if "webPages" in data and "value" in data["webPages"] and data["webPages"]["value"]:
-                company_website_url = data["webPages"]["value"][0]["url"]
-            else:
-                company_website_url = "No website found"
-        else:
-            company_website_url = "Failed to retrieve website"
-
-        # Check if the request for LinkedIn profile was successful
-        if response_linkedin.status_code == 200:
-            # Extract the top search result URL
-            data = response_linkedin.json()
-            if "webPages" in data and "value" in data["webPages"] and data["webPages"]["value"]:
-                linkedin_profile_url = data["webPages"]["value"][0]["url"]
-            else:
-                linkedin_profile_url = "No LinkedIn profile found"
-        else:
-            linkedin_profile_url = "Failed to retrieve LinkedIn profile"
-
-        # Check if the request for Crunchbase URL was successful
-        if response_crunchbase.status_code == 200:
-            # Extract the top search result URL
-            data = response_crunchbase.json()
-            if "webPages" in data and "value" in data["webPages"] and data["webPages"]["value"]:
-                crunchbase_url = data["webPages"]["value"][0]["url"]
-            else:
-                crunchbase_url = "No Crunchbase profile found"
-        else:
-            crunchbase_url = "Failed to retrieve Crunchbase profile"
-
-        search_results[company_name] = (company_website_url, linkedin_profile_url, crunchbase_url)
-
-    return search_results'''
-
-
 def find_crunchbase_url(company_names, api_key):
     search_results = {}
 
@@ -265,19 +202,6 @@ wider_list = find_crunchbase_url(format_company_names, bing_api_key)
 
 for url in wider_list:
     Output_format(wider_list[url])
-    '''# Get founder name
-    company_name, website, description, linkedin_url, founder_name, founder_description = get_company_info(url_list[url])
-    # print(id)
-    print(company_name)
-    print(f"Website: {website}")
-    print(f"Description: {description}")
-    print(f"Linkedin: {linkedin_url}")
-    if founder_name:
-        print(f"Founder Name: {founder_name}")
-        print(f"Description: {founder_description}")
-    else:
-        print("Founder not found.")
-    print()'''
 
 print("Crunchbase results:\n")
 search_results = crunchbase_search(search_query)
