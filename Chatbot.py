@@ -126,6 +126,8 @@ def find_crunchbase_url(company_names, api_key):
 # Interacting with crunchbase api to obtain useful information about a company
 def get_company_info(url):
     # Extract organization ID from the URL
+    # Extracting permalink from crunchbase company url
+    # The number '40' is the length of the string 'www.crunchbase.com/organization'
     organization_id = url[40:].split('/')[0]
     API_KEY = crunchbase_api_key
     # Base URL for the Entity Lookup API
