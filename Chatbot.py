@@ -202,48 +202,48 @@ updated_search_query = get_chat_response(search_query, f"Given is a simple searc
                                                        f"make minor modifications and return the new search query. Do"
                                                        f"not make unnecessary changes. Search query:")
 
-# Searching the wider internet to obtain company names
-print("Searching the wider internet")
-print("(Note: Less relevant results)")
-print()
-
-results = wide_search(updated_search_query)
-company_names = extract_company_names(results)
-format_company_names_1 = get_chat_response(company_names, "Following is a block of text containing web-scraped data on"
-                                                          "seed, pre-seed and series-A startup companies. From this text,"
-                                                          "filter out only company names from the text and return the "
-                                                          "names of top 5 startup companies in the form of a list."
-                                                          "Remember, we are only looking for early stage startups and not for "
-                                                          "big companies so filter them out from your response. The response"
-                                                          "should be in the form of a python list. If you cannot come"
-                                                          "up with company names, simply return a blank list."
-                                                          "Your output should only"
-                                                          " contain the list in plain text form, in the format:"
-                                                          "['company_name_1', 'company_name_2', 'company_name_3',...]",
-                                           model='gpt-4-turbo-preview', tokens=100)
-
-format_company_names = get_chat_response(format_company_names_1,
-                                         "Given is a list that should contain the names of seed,"
-                                         "pre-seed and series A startup companies. Remove anything from"
-                                         "this list that does not meet this criteria, keeping only"
-                                         "company names. Do not make unnecessary changes, returning the"
-                                         "list in the same format as the output. This is the list:")
-
-format_company_names = eval(format_company_names)
-if format_company_names:
-    wider_list = find_crunchbase_url(format_company_names, bing_api_key)
-
-    for url in wider_list:
-        Output_format(wider_list[url])
-else:
-    print("No relevant results found\n")
+# # Searching the wider internet to obtain company names
+# print("Searching the wider internet")
+# print("(Note: Less relevant results)")
+# print()
+#
+# results = wide_search(updated_search_query)
+# company_names = extract_company_names(results)
+# format_company_names_1 = get_chat_response(company_names, "Following is a block of text containing web-scraped data on"
+#                                                           "seed, pre-seed and series-A startup companies. From this text,"
+#                                                           "filter out only company names from the text and return the "
+#                                                           "names of top 5 startup companies in the form of a list."
+#                                                           "Remember, we are only looking for early stage startups and not for "
+#                                                           "big companies so filter them out from your response. The response"
+#                                                           "should be in the form of a python list. If you cannot come"
+#                                                           "up with company names, simply return a blank list."
+#                                                           "Your output should only"
+#                                                           " contain the list in plain text form, in the format:"
+#                                                           "['company_name_1', 'company_name_2', 'company_name_3',...]",
+#                                            model='gpt-4-turbo-preview', tokens=100)
+#
+# format_company_names = get_chat_response(format_company_names_1,
+#                                          "Given is a list that should contain the names of seed,"
+#                                          "pre-seed and series A startup companies. Remove anything from"
+#                                          "this list that does not meet this criteria, keeping only"
+#                                          "company names. Do not make unnecessary changes, returning the"
+#                                          "list in the same format as the output. This is the list:")
+#
+# format_company_names = eval(format_company_names)
+# if format_company_names:
+#     wider_list = find_crunchbase_url(format_company_names, bing_api_key)
+#
+#     for url in wider_list:
+#         Output_format(wider_list[url])
+# else:
+#     print("No relevant results found\n")
 
 
 # Using Crunchbase to look for companies
 print("Crunchbase results:")
 print("(Note: Most relevant results)")
 print()
-search_results = crunchbase_search(search_query, count=10)
+search_results = crunchbase_search(search_query, count=20)
 
 crunchbase_list = []
 if search_results:
